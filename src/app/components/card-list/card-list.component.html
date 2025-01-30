@@ -1,0 +1,40 @@
+<div>
+    <h2>Listado de Cartas (POST /cards)</h2>
+    <button (click)="getAllCards()">Refrescar cartas</button>
+
+    <div *ngIf="selectedCard">
+        <h3>Detalle de Carta (GET /cards/:id)</h3>
+        <p><strong>Id:</strong> {{ selectedCard.id }}</p>
+        <p><strong>Nombre:</strong> {{ selectedCard.name }}</p>
+        <p><strong>Tipo:</strong> {{ selectedCard.type }}</p>
+        <p><strong>Mana Cost:</strong> {{ selectedCard.manaCost }}</p>
+        <p><strong>Rareza:</strong> {{ selectedCard.rarity }}</p>
+        <img [src]="selectedCard.imageUrl" alt="Imagen Carta" />
+      </div>
+
+      <mat-grid-list cols="3" >
+        <mat-grid-tile *ngFor="let card of cards">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                  <mat-card-title>{{card.name}}</mat-card-title>
+                  <mat-card-subtitle>{{card.manaCost}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="card.imageUrl" style="width:223px;height:310px;" [alt]="card.name">
+                <mat-card-content>
+                  <p>
+                    {{card.rarity}} {{card.type}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button (click)="getCardDetail(card.id)" mat-button>Ver mas</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+  </div>
+  
+
+  

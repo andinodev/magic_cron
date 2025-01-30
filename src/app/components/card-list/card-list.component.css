@@ -1,0 +1,14 @@
+a.btn{
+    width: auto;
+    background: #ff0000;
+    color: #fff;
+    padding: 15px;
+}
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
